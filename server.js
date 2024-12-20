@@ -8,8 +8,14 @@ const PORT = process.env.PORT || 3500 // server deployment port
 // Serve files such as HTML, CSS, JS, etc. 
 app.use('/', express.static(path.join(__dirname, '/public')))
 
+// This line moutns the 'root' route handler from the module
+// requests to the root URL will be handled by the routes defined 
+// in the 'root' module
 app.use('/', require('./routes/root'))
 
+
+// Handle all unmatched requests and return a 404 error - when 
+// incoming requests dont match any defined routes 
 app.all('*', (req, res) => {
     res.status(404)
     if (req.accepts('html')) {
