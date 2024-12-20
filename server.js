@@ -3,6 +3,8 @@ const app = express()
 const path = require('path')
 const PORT = process.env.PORT || 3500 // server deployment port 
 
+// middleware for processing json 
+app.use(express.json())
 
 // Allows Express to serve static files
 // Serve files such as HTML, CSS, JS, etc. 
@@ -30,3 +32,8 @@ app.all('*', (req, res) => {
 // Start the server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
+
+
+
+// Middleware: sits between server and client in request & response cycle
+// performs operations on request before they reach the controller 
