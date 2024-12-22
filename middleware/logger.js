@@ -5,11 +5,11 @@ const fsPromises = require('fs').promises
 const path = require('path')
 
 // function to log events async
-const logEvents = async (messageChannel, logFileName) => {
+const logEvents = async (message, logFileName) => {
     // get current date and time 
     const dateTime = `${format(new Date(), 'yyyyMMdd\tHH:mm:ss')}`
     //create a log item with timestamp, ID, and message
-    const logItem = `${dateTime}\t${uuid()}\t${messageChannel}\n`
+    const logItem = `${dateTime}\t${uuid()}\t${message}\n`
 
     try {
         // check if log directory exists, if not create it
