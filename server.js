@@ -1,12 +1,16 @@
 const express = require('express')
+const cors = require('cors')
 const app = express() 
 const path = require('path')
 const { logger } = require('./middleware/logger')
 const errorHandler = require('./middleware/errorHandler')
 const cookieParser = require('cookie-parser')
+const corsOptions = require('./config/corsOptions')
 const PORT = process.env.PORT || 3500 // server deployment port 
 
 app.use(logger)
+
+app.use(cors(corsOptions))
 
 // middleware for processing json 
 app.use(express.json())
