@@ -33,7 +33,7 @@ app.use('/', express.static(path.join(__dirname, '/public')))
 // requests to the root URL will be handled by the routes defined 
 // in the 'root' module
 app.use('/', require('./routes/root'))
-
+app.use('/users', require('./routes/userRoutes'))
 
 // Handle all unmatched requests and return a 404 error - when 
 // incoming requests dont match any defined routes 
